@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
 
 function CharacterList({ characters }) {
@@ -5,7 +6,11 @@ function CharacterList({ characters }) {
     return <CharacterCard character={character} />;
   });
 
-  return <ul className="list"> {characterElement}</ul>;
+  return <ul className="list">{characterElement}</ul>;
 }
+
+CharacterList.prototype = {
+  characters: PropTypes.array.isRequired,
+};
 
 export default CharacterList;

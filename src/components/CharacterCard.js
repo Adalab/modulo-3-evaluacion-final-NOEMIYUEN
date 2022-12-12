@@ -1,15 +1,15 @@
-import morty from '../images/mortyEj.png';
+import PropTypes from 'prop-types';
 
 function CharacterCard(props) {
   return (
-    <li className="list__element">
+    <li key={props.character.id} className="list__element">
       <a className="link" href="/" title="character Detail">
         <div className="list__element--imgbox">
           <img
             className="imgbox__img"
             src={props.character.image}
-            alt={`Foto de `}
-            title={`Foto de`}
+            alt={`Foto de ${props.character.name}`}
+            title={`Foto de ${props.character.name}`}
           />
         </div>
 
@@ -19,5 +19,9 @@ function CharacterCard(props) {
     </li>
   );
 }
+
+CharacterCard.prototype = {
+  character: PropTypes.object.isRequired,
+};
 
 export default CharacterCard;

@@ -1,0 +1,25 @@
+
+.formSection {
+   /*  background-color: palegreen; */
+    width: 100%;
+    padding: 10px;
+    &__form {
+        /* background-color: red; */
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        &--nameInput {
+            background-color: transparent;
+            color:white;
+            border: 3px solid rgb(0, 217, 255);
+            font-size: 1rem;
+            padding: 7px;
+            line-height: 1.5rem;
+            width:350px;
+        }
+    }
+}
+    
