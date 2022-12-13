@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 function FilterByName({ handleFilterName, characterData }) {
   const handleInputName = (ev) => {
     const userSearch = ev.target.value.toLowerCase();
-
-    console.log(userSearch);
-    console.log(characterData);
-    const filterSearch = characterData.filter((character) =>
-      character.name.toLowerCase().includes(userSearch)
-    );
-    console.log(filterSearch);
+    const filterSearch = characterData.filter((character) => {
+      if (userSearch === '') {
+        return true;
+      } else {
+        return character.name.toLowerCase().includes(userSearch);
+      }
+    });
     return handleFilterName(filterSearch);
-
-    /*   const filterSearch = characterData.filter((eachCharacter) =>
-      eachCharacter.name.toLowerCase().incluides(userSearch)
-    );
-    console.log(filterSearch);
-    handleFilterName(filterSearch); */
   };
 
   return (

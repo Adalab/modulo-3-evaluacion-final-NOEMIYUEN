@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     getCharacterFromApi().then((cleanData) => {
       setcharacterData(cleanData);
+      setFilterByName(cleanData);
     });
   }, []);
 
