@@ -8,12 +8,13 @@ function FilterByName({
 }) {
   const handleInputName = (ev) => {
     setUserSearch(ev.target.value.toLowerCase());
-    console.log(userSearch);
     const filterSearch = characterData.filter((character) => {
       if (userSearch === '') {
         return true;
       } else {
-        return character.name.toLowerCase().includes(userSearch);
+        return character.name
+          .toLowerCase()
+          .includes(ev.target.value.toLowerCase());
       }
     });
 
@@ -28,7 +29,7 @@ function FilterByName({
         className="formSection__form--nameInput"
         id="search"
         placeholder="Search your favourite character"
-        onChange={handleInputName}
+        onInput={handleInputName}
         value={userSearch}
       />
     </>
