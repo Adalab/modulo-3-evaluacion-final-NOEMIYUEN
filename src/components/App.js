@@ -4,13 +4,16 @@ import getCharacterFromApi from '../services/api';
 
 import '../styles/App.scss';
 import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
 import Header from './Header';
+import { Route, Routes, matchPath, useLocation } from 'react-router-dom';
 
 function App() {
   // VARIABLES ESTADO
   const [characterData, setcharacterData] = useState([]);
   const [filterByName, setFilterByName] = useState([]);
+  const [userSearch, setUserSearch] = useState('');
 
   // USEEFFECT
 
@@ -23,33 +26,56 @@ function App() {
 
   // FUNCION ES HANDLER
 
-  const handleSummit = (ev) => {
-    ev.preventDefault();
-  };
-
   const handleFilterName = (value) => {
     setFilterByName(value);
   };
 
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
 
+  const { pathname } = useLocation();
+
+  const dataUrl = matchPath('/detail/:characterId', pathname);
+
+  const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
+
+  /*  console.log(characterData); */
+
+  const characterFound = characterData.find(
+    (character) => character.id === characterId
+  );
+  /*   console.log(characterFound); */
+
   // HTML EN EL RETURN
 
   return (
     <>
       <Header />
+
       <main className="main">
-        <section className="formSection">
-          <form action="" className="formSection__form" onSubmit={handleSummit}>
-            <Filters
-              handleFilterName={handleFilterName}
-              characterData={characterData}
-            />
-          </form>
-        </section>
-        <section className="characterSection">
-          <CharacterList characters={filterByName} />
-        </section>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Filters
+                  handleFilterName={handleFilterName}
+                  characterData={characterData}
+                  setUserSearch={setUserSearch}
+                  userSearch={userSearch}
+                />
+                <CharacterList characters={filterByName} />
+              </>
+            }
+          />
+          <Route
+            path="/detail/:characterId"
+            element={
+              <section className="cardSection">
+                <CharacterDetail character={characterFound} />
+              </section>
+            }
+          />
+        </Routes>
       </main>
     </>
   );

@@ -6,7 +6,11 @@ function CharacterList({ characters }) {
     return <CharacterCard character={character} />;
   });
 
-  return <ul className="list">{characterElement}</ul>;
+  return (
+    <section className="characterSection">
+      <ul className="list">{characterElement}</ul>
+    </section>
+  );
 }
 
 CharacterList.prototype = {

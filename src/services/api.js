@@ -6,13 +6,13 @@ function getCharacterFromApi() {
     .then((data) => {
       const cleanData = data.results.map((character) => {
         return {
-          id: character.id,
+          id: character.id.toString(),
           name: character.name,
           status: character.status,
           species: character.species,
           origin: character.origin.name,
           image: character.image,
-          episodes: character.episode.length,
+          episodes: character.episode.length.toString(),
         };
       });
       return cleanData;

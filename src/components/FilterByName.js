@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
 
-function FilterByName({ handleFilterName, characterData }) {
+function FilterByName({
+  handleFilterName,
+  characterData,
+  setUserSearch,
+  userSearch,
+}) {
   const handleInputName = (ev) => {
-    const userSearch = ev.target.value.toLowerCase();
+    setUserSearch(ev.target.value.toLowerCase());
+    console.log(userSearch);
     const filterSearch = characterData.filter((character) => {
       if (userSearch === '') {
         return true;
@@ -10,7 +16,9 @@ function FilterByName({ handleFilterName, characterData }) {
         return character.name.toLowerCase().includes(userSearch);
       }
     });
-    return handleFilterName(filterSearch);
+
+    handleFilterName(filterSearch);
+    return userSearch;
   };
 
   return (
@@ -19,8 +27,9 @@ function FilterByName({ handleFilterName, characterData }) {
         type="text"
         className="formSection__form--nameInput"
         id="search"
-        placeholder="Busca tu personaje"
+        placeholder="Search your favourite character"
         onChange={handleInputName}
+        value={userSearch}
       />
     </>
   );
@@ -29,6 +38,8 @@ function FilterByName({ handleFilterName, characterData }) {
 FilterByName.prototype = {
   handleFilterName: PropTypes.func,
   characterData: PropTypes.array,
+  setUserSearch: PropTypes.func,
+  userSearch: PropTypes.string,
 };
 
 export default FilterByName;
