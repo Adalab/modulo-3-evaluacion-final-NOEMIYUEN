@@ -12,7 +12,7 @@ function CharacterList({ characters }) {
       <section className="characterSection">
         <ul className="list">{characterElement}</ul>
       </section>
-      <NotFound characters={characters} />
+      {characters.length !== 0 ? null : <NotFound />}
     </>
   );
 }

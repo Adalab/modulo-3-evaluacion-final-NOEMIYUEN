@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import portal from '../images/portalRick.png';
-function NotFound({ characters }) {
+function NotFound() {
   return (
-    <section className={characters.length === 0 ? 'sectionNotFound' : 'hide'}>
+    <section className="sectionNotFound">
+      {/* <section className={characters.length !== 0 ? 'hide' : 'sectionNotFound'}> */}
       <article className="sectionNotFound__card">
         <h1 className="sectionNotFound__card--title">Wubba Lubba Dub Dub!!</h1>
         <h2 className="sectionNotFound__card--text">
@@ -19,9 +19,5 @@ function NotFound({ characters }) {
     </section>
   );
 }
-
-NotFound.prototype = {
-  characters: PropTypes.array,
-};
 
 export default NotFound;

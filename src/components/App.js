@@ -19,10 +19,8 @@ function App() {
 
   useEffect(() => {
     getCharacterFromApi().then((cleanData) => {
-      if (cleanData !== undefined) {
-        setcharacterData(cleanData.sort(compareName));
-        setFilterByName(cleanData);
-      }
+      setcharacterData(cleanData.sort(compareName));
+      setFilterByName(cleanData);
     });
   }, []);
 
