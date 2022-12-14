@@ -9,7 +9,7 @@ function Reset(props) {
         className="header__img"
         src={resetRick}
         alt="Rick with portal-gun"
-        title="Rick with portal-gun"
+        title="Reset"
       />
       {/* <i className="fa-regular fa-trash-can"></i>  */}
     </button>

@@ -9,6 +9,7 @@ import Filters from './Filters';
 import Header from './Header';
 import { Route, Routes, matchPath, useLocation } from 'react-router-dom';
 import Footer from './Footer';
+import Loading from './Loading';
 
 function App() {
   // VARIABLES ESTADO
@@ -20,11 +21,13 @@ function App() {
   const [userSelect, setUserSelect] = useState('All');
   const [filterByOrigins, setFilterByOrigins] = useState([]);
   const [filterBySpecies, setFilterBySpecies] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
 
   // USEEFFECT
 
   useEffect(() => {
     getCharacterFromApi().then((cleanData) => {
+      setisLoading(false);
       setcharacterData(cleanData.sort(compareName));
       setFilterByName(cleanData);
       ls.set('characterData', cleanData);
@@ -112,38 +115,42 @@ function App() {
       <Header />
 
       <main className="main">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Filters
-                  handleFilterName={handleFilterName}
-                  characterData={characterData}
-                  setUserSearch={setUserSearch}
-                  userSearch={userSearch}
-                  origins={getOrigin()}
-                  handleFilterOrigin={handleFilterOrigin}
-                  filterByOrigins={filterByOrigins}
-                  handleFilterSpecies={handleFilterSpecies}
-                  userSelect={userSelect}
-                  setUserSelect={setUserSelect}
-                  handleReset={handleReset}
-                />
-                <CharacterList characters={allFilterData} />
-                {/* <CharacterList characters={filterByName} /> */}
-              </>
-            }
-          />
-          <Route
-            path="/detail/:characterId"
-            element={
-              <section className="cardSection">
-                <CharacterDetail character={characterFound} />
-              </section>
-            }
-          />
-        </Routes>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Filters
+                    handleFilterName={handleFilterName}
+                    characterData={characterData}
+                    setUserSearch={setUserSearch}
+                    userSearch={userSearch}
+                    origins={getOrigin()}
+                    handleFilterOrigin={handleFilterOrigin}
+                    filterByOrigins={filterByOrigins}
+                    handleFilterSpecies={handleFilterSpecies}
+                    userSelect={userSelect}
+                    setUserSelect={setUserSelect}
+                    handleReset={handleReset}
+                  />
+                  <CharacterList characters={allFilterData} />
+                  {/* <CharacterList characters={filterByName} /> */}
+                </>
+              }
+            />
+            <Route
+              path="/detail/:characterId"
+              element={
+                <section className="cardSection">
+                  <CharacterDetail character={characterFound} />
+                </section>
+              }
+            />
+          </Routes>
+        )}
       </main>
       <Footer />
     </>
