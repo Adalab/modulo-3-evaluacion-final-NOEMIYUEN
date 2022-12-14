@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import getCharacterFromApi from '../services/api';
-/* import ls from '../services/localstorage'; */
+import ls from '../services/localstorage';
 
 import '../styles/App.scss';
 import CharacterList from './CharacterList';
@@ -11,7 +11,9 @@ import { Route, Routes, matchPath, useLocation } from 'react-router-dom';
 
 function App() {
   // VARIABLES ESTADO
-  const [characterData, setcharacterData] = useState([]);
+  const [characterData, setcharacterData] = useState(
+    ls.get('characterData', [])
+  );
   const [filterByName, setFilterByName] = useState([]);
   const [userSearch, setUserSearch] = useState('');
 
@@ -21,6 +23,7 @@ function App() {
     getCharacterFromApi().then((cleanData) => {
       setcharacterData(cleanData.sort(compareName));
       setFilterByName(cleanData);
+      ls.set('characterData', cleanData);
     });
   }, []);
 
