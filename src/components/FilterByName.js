@@ -10,7 +10,7 @@ function FilterByName({
     setUserSearch(ev.target.value.toLowerCase());
 
     const filterSearch = characterData.filter((character) => {
-      if (userSearch === '') {
+      if (ev.target.value.toLowerCase() === '') {
         return true;
       } else {
         return character.name

@@ -20,7 +20,7 @@ function CharacterDetail(props) {
           />
 
           <div className="textBox">
-            <h2 className="textBox__name">Morty {props.character.name}</h2>
+            <h2 className="textBox__name">{props.character.name}</h2>
 
             <div className="textBox__box">
               <h3 className="textBox__box--title">Status:</h3>

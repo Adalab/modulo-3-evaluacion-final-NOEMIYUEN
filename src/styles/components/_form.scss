@@ -1,17 +1,15 @@
 
 .formSection {
-   /*  background-color: palegreen; */
     width: 100%;
     padding: 10px;
     &__form {
-        /* background-color: red; */
         width: 100%;
         margin-bottom: 20px;
         text-align: center;
         display:flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap:5px;
         &--nameInput {
             background-color: transparent;
             color:white;
@@ -22,14 +20,16 @@
             width:350px;
         }
         &--originInput {
+            margin: 5px;;
             color:white;
             font-size: 1rem;
             line-height: 1.5rem;
         }
         &--labelInput {
             background-color: transparent;
-            color:white;
-            border: 3px solid rgb(0, 217, 255);
+            color:rgb(0, 217, 255);
+            border: 1px solid rgb(0, 217, 255);
+            border-radius: 3px;
             font-size: 1rem;
             padding: 7px;
             line-height: 1.5rem;
@@ -37,4 +37,29 @@
         }
     }
 }
-    
+
+.speciesBox{
+    margin-top: 20px;
+    &__label{
+        padding-left: 10px;
+        color: greenyellow;
+    }
+    &__select{
+        margin-left: 10px;
+        padding: 3px 10px 3px 3px;
+        background-color: black;
+        color: rgb(0, 217, 255);
+        border-radius: 3px;
+        &:focus {
+            border: solid 1px greenyellow;
+            border-radius: 3px;
+        }
+    }
+
+
+}
+.wrapBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

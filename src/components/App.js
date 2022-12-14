@@ -17,7 +17,9 @@ function App() {
   );
   const [filterByName, setFilterByName] = useState([]);
   const [userSearch, setUserSearch] = useState('');
+  const [userSelect, setUserSelect] = useState('All');
   const [filterByOrigins, setFilterByOrigins] = useState([]);
+  const [filterBySpecies, setFilterBySpecies] = useState([]);
 
   // USEEFFECT
 
@@ -28,11 +30,15 @@ function App() {
       ls.set('characterData', cleanData);
     });
   }, []);
-
+  console.log(characterData);
   // FUNCION ES HANDLER
 
   const handleFilterName = (value) => {
     setFilterByName(value);
+  };
+
+  const handleFilterSpecies = (value) => {
+    setFilterBySpecies(value);
   };
 
   const handleFilterOrigin = (value) => {
@@ -76,6 +82,13 @@ function App() {
       return filterByName.includes(character);
     })
     .filter((character) => {
+      if (filterBySpecies.length === 0) {
+        return true;
+      } else {
+        return filterBySpecies.includes(character);
+      }
+    })
+    .filter((character) => {
       if (filterByOrigins.length === 0) {
         return true;
       } else {
@@ -103,6 +116,9 @@ function App() {
                   origins={getOrigin()}
                   handleFilterOrigin={handleFilterOrigin}
                   filterByOrigins={filterByOrigins}
+                  handleFilterSpecies={handleFilterSpecies}
+                  userSelect={userSelect}
+                  setUserSelect={setUserSelect}
                 />
                 <CharacterList characters={allFilterData} />
                 {/* <CharacterList characters={filterByName} /> */}
