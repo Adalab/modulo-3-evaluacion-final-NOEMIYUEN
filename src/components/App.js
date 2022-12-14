@@ -8,6 +8,7 @@ import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
 import Header from './Header';
 import { Route, Routes, matchPath, useLocation } from 'react-router-dom';
+import Footer from './Footer';
 
 function App() {
   // VARIABLES ESTADO
@@ -118,6 +119,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
