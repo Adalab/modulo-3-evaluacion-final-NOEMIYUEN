@@ -16,6 +16,7 @@ function App() {
   );
   const [filterByName, setFilterByName] = useState([]);
   const [userSearch, setUserSearch] = useState('');
+  const [filterByOrigins, setFilterByOrigins] = useState([]);
 
   // USEEFFECT
 
@@ -31,6 +32,16 @@ function App() {
 
   const handleFilterName = (value) => {
     setFilterByName(value);
+  };
+
+  const handleFilterOrigin = (value) => {
+    if (filterByOrigins.includes(value)) {
+      const position = filterByOrigins.indexOf(value);
+      filterByOrigins.splice(position, 1);
+      setFilterByOrigins([...filterByOrigins]);
+    } else {
+      setFilterByOrigins([...filterByOrigins, value]);
+    }
   };
 
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
@@ -52,6 +63,25 @@ function App() {
     return 0;
   }
 
+  const getOrigin = () => {
+    const userOrigin = characterData.map((character) => character.origin);
+    const uniqueOriginSet = new Set(userOrigin);
+    const uniqueOrigin = [...uniqueOriginSet]; //meter set en un array
+    return uniqueOrigin;
+  };
+
+  const allFilterData = characterData
+    .filter((character) => {
+      return filterByName.includes(character);
+    })
+    .filter((character) => {
+      if (filterByOrigins.length === 0) {
+        return true;
+      } else {
+        return filterByOrigins.includes(character.origin);
+      }
+    });
+
   // HTML EN EL RETURN
 
   return (
@@ -69,8 +99,12 @@ function App() {
                   characterData={characterData}
                   setUserSearch={setUserSearch}
                   userSearch={userSearch}
+                  origins={getOrigin()}
+                  handleFilterOrigin={handleFilterOrigin}
+                  filterByOrigins={filterByOrigins}
                 />
-                <CharacterList characters={filterByName} />
+                <CharacterList characters={allFilterData} />
+                {/* <CharacterList characters={filterByName} /> */}
               </>
             }
           />

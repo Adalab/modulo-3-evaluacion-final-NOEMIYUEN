@@ -11,7 +11,22 @@
         display:flex;
         justify-content: center;
         align-items: center;
+        gap:5px;
         &--nameInput {
+            background-color: transparent;
+            color:white;
+            border: 3px solid rgb(0, 217, 255);
+            font-size: 1rem;
+            padding: 7px;
+            line-height: 1.5rem;
+            width:350px;
+        }
+        &--originInput {
+            color:white;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        &--labelInput {
             background-color: transparent;
             color:white;
             border: 3px solid rgb(0, 217, 255);

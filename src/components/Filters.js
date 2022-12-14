@@ -1,5 +1,6 @@
 import FilterByName from './FilterByName';
 import PropTypes from 'prop-types';
+import FilterByOrigin from './FilterByOrigin';
 
 function Filters({
   handleFilterName,
@@ -7,6 +8,9 @@ function Filters({
   setUserSearch,
   userSearch,
   setHiddenClass,
+  origins,
+  handleFilterOrigin,
+  filterByOrigins,
 }) {
   const handleSummit = (ev) => {
     ev.preventDefault();
@@ -22,6 +26,11 @@ function Filters({
           userSearch={userSearch}
           setHiddenClass={setHiddenClass}
         />
+        <FilterByOrigin
+          origins={origins}
+          handleFilterOrigin={handleFilterOrigin}
+          filterByOrigins={filterByOrigins}
+        />
       </form>
     </section>
   );
@@ -33,6 +42,9 @@ Filters.prototype = {
   setUserSearch: PropTypes.func,
   userSearch: PropTypes.string,
   setHiddenClass: PropTypes.func,
+  handleFilterOrigin: PropTypes.func,
+  origins: PropTypes.func,
+  filterByOrigins: PropTypes.array,
 };
 
 export default Filters;
