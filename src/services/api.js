@@ -1,6 +1,6 @@
 function getCharacterFromApi() {
   return fetch(
-    /* 'https://rickandmortyapi.com/api/character' */
+    /*     'https://rickandmortyapi.com/api/character' */
 
     //Api alternativa en caso de saturar las peticiones
     'https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json'
