@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import NotFound from './NotFound';
 
 function CharacterDetail(props) {
-  console.log(props.character);
   if (props.character === undefined) {
     return <NotFound />;
   } else {
