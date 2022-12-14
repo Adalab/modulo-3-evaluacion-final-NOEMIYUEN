@@ -30,7 +30,7 @@ function FilterByName({
         className="formSection__form--nameInput"
         id="search"
         placeholder="Search your favourite character"
-        onInput={handleInputName}
+        onChange={handleInputName}
         value={userSearch}
       />
     </>

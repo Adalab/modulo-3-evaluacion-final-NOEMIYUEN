@@ -14,13 +14,12 @@ function App() {
   const [characterData, setcharacterData] = useState([]);
   const [filterByName, setFilterByName] = useState([]);
   const [userSearch, setUserSearch] = useState('');
-  const [classHide, setClassHide] = useState('hide');
 
   // USEEFFECT
 
   useEffect(() => {
     getCharacterFromApi().then((cleanData) => {
-      setcharacterData(cleanData);
+      setcharacterData(cleanData.sort(compareName));
       setFilterByName(cleanData);
     });
   }, []);
@@ -31,10 +30,6 @@ function App() {
     setFilterByName(value);
   };
 
-  const setHiddenClass = (value) => {
-    setClassHide(value);
-  };
-
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
 
   const { pathname } = useLocation();
@@ -43,6 +38,16 @@ function App() {
   const characterFound = characterData.find(
     (character) => character.id === characterId
   );
+
+  function compareName(a, b) {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -1;
+    }
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  }
 
   // HTML EN EL RETURN
 
@@ -62,11 +67,7 @@ function App() {
                   setUserSearch={setUserSearch}
                   userSearch={userSearch}
                 />
-                <CharacterList
-                  characters={filterByName}
-                  classHide={classHide}
-                  setHiddenClass={setHiddenClass}
-                />
+                <CharacterList characters={filterByName} />
               </>
             }
           />
