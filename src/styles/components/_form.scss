@@ -64,8 +64,16 @@
 
 .reset {
     background-color: black;
+    padding: 10px;
     color:greenyellow;
     display:flex;
     font-size: 1.5rem;
     align-items: center;
+    &:hover {
+        background-color: greenyellow;
+        background: radial-gradient(circle, rgba(13,249,8,1) 0%, rgba(1,6,0,0.7626400902157738) 70%, rgba(0,0,0,1) 100%);
+        color:white;
+        border-radius: 50%;
+    }
+
 }
