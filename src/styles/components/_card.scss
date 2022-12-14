@@ -1,40 +1,61 @@
 .cardSection {
     color:white;
-    margin:20px;
-    padding:3px 270px;
+    margin:5px;
+    padding:3px;
     display:flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    @media all and (min-width: 768px){
+        margin:20px;
+        padding:3px 270px
+          }
     &__homeLink{
         color:white;
-        font-size: 1.5rem;
-        width: 600px;
+        font-size: 1rem;
+        width: 90vw;
         padding:10px;
-        margin-left: 0px;
         text-decoration: none;
         text-align: right;
         font-weight: 400;
+        @media all and (min-width: 768px){
+            font-size: 1.5rem;
+            width: 600px;
+            padding:10px;
+            font-weight: 400;
+              }
         &:hover {
             transform:rotate(360deg);
             color:greenyellow;
             font-size: 1.6rem;
             font-weight: 600;
             }
+        
     }
     &__card{
         display:flex;
         flex-direction: row;
+        align-items: center;
         gap:10px;
         background-color: rgb(0, 174, 255);
         border: solid 10px  rgba(3, 255, 87, 0.801);
         border-image: linear-gradient(to top, #02ff39 0%, #01ff386b 100%) 1;
-        width: 600px;
-        height: 350px;
-        padding:30px;
+        width: 90vw;
+        height: 250px;
+        padding:5px;
+        @media all and (min-width: 768px){
+            gap:10px;;
+            width: 600px;
+            height: 350px;
+            padding:30px;
+              }
         &--img {
-            max-width: 250px;
-        }
+            width: 50%;
+            height: 85%;
+            @media all and (min-width: 768px){
+                max-width: 250px;
+                  }
+            }
     }
 }
 
@@ -43,18 +64,30 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    padding:10px;
+    padding:5px;
     color:white;
-    padding:10px 40px;
+    gap:5px;
+    @media all and (min-width: 768px){
+        padding:10px;
+        gap:5px;
+          }
     &__name{
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 800px;
-        line-height: 2.5rem;
+        line-height: 1.7rem;
+        @media all and (min-width: 768px){
+            font-size: 2rem;
+            font-weight: 800px;
+            line-height: 2.5rem;
+              }
     }
     &__box{
         display: flex;
-        margin-bottom: 5px;
-        gap:5px;
+        gap:3px;
+        @media all and (min-width: 768px){
+            margin-bottom: 5px;
+             gap:5px;
+              }
         &--title{
             font-size: 1rem;
             font-weight: 800px;

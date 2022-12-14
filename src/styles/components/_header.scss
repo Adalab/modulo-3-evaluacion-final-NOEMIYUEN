@@ -1,12 +1,19 @@
 
 
 .header {
-  height:200px;
+  height:100px;
   background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media all and (min-width: 768px){
+    height:180px;
+    }
   &__img {
-    height: 200px;
+    height: 90px;
+    @media all and (min-width: 768px){
+    height:200px;
+      }
   }
+
 }
