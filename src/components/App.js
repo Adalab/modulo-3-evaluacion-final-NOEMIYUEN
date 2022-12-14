@@ -14,6 +14,7 @@ function App() {
   const [characterData, setcharacterData] = useState([]);
   const [filterByName, setFilterByName] = useState([]);
   const [userSearch, setUserSearch] = useState('');
+  const [classHide, setClassHide] = useState('hide');
 
   // USEEFFECT
 
@@ -30,20 +31,18 @@ function App() {
     setFilterByName(value);
   };
 
+  const setHiddenClass = (value) => {
+    setClassHide(value);
+  };
+
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
 
   const { pathname } = useLocation();
-
   const dataUrl = matchPath('/detail/:characterId', pathname);
-
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
-
-  /*  console.log(characterData); */
-
   const characterFound = characterData.find(
     (character) => character.id === characterId
   );
-  /*   console.log(characterFound); */
 
   // HTML EN EL RETURN
 
@@ -63,7 +62,11 @@ function App() {
                   setUserSearch={setUserSearch}
                   userSearch={userSearch}
                 />
-                <CharacterList characters={filterByName} />
+                <CharacterList
+                  characters={filterByName}
+                  classHide={classHide}
+                  setHiddenClass={setHiddenClass}
+                />
               </>
             }
           />

@@ -1,5 +1,3 @@
-import morty from '../images/mortyEj.png';
-
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +11,6 @@ function CharacterDetail(props) {
         <img
           className="cardSection__card--img"
           src={props.character.image}
-          /* src={props.characterData.image} */
           alt={`Foto de ${props.character.name}`}
           title={`Foto de ${props.character.name}`}
         />
@@ -46,7 +43,6 @@ function CharacterDetail(props) {
             <h3 className="textBox__box--title">Episodes:</h3>
             <span className="textBox__box--detail">
               {props.character.episodes}
-              {/* {props.characterData.episodes} */}
             </span>
           </div>
         </div>

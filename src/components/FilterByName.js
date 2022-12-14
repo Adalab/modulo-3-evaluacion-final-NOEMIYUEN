@@ -8,6 +8,7 @@ function FilterByName({
 }) {
   const handleInputName = (ev) => {
     setUserSearch(ev.target.value.toLowerCase());
+
     const filterSearch = characterData.filter((character) => {
       if (userSearch === '') {
         return true;

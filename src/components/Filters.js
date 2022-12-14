@@ -6,6 +6,7 @@ function Filters({
   characterData,
   setUserSearch,
   userSearch,
+  setHiddenClass,
 }) {
   const handleSummit = (ev) => {
     ev.preventDefault();
@@ -19,6 +20,7 @@ function Filters({
           characterData={characterData}
           setUserSearch={setUserSearch}
           userSearch={userSearch}
+          setHiddenClass={setHiddenClass}
         />
       </form>
     </section>
@@ -30,6 +32,7 @@ Filters.prototype = {
   characterData: PropTypes.array,
   setUserSearch: PropTypes.func,
   userSearch: PropTypes.string,
+  setHiddenClass: PropTypes.func,
 };
 
 export default Filters;
