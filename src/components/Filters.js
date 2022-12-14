@@ -2,6 +2,7 @@ import FilterByName from './FilterByName';
 import PropTypes from 'prop-types';
 import FilterByOrigin from './FilterByOrigin';
 import FilterBySpecies from './FilterBySpecies';
+import Reset from './Reset';
 
 function Filters({
   handleFilterName,
@@ -15,6 +16,7 @@ function Filters({
   handleFilterSpecies,
   userSelect,
   setUserSelect,
+  handleReset,
 }) {
   const handleSummit = (ev) => {
     ev.preventDefault();
@@ -43,6 +45,7 @@ function Filters({
           userSelect={userSelect}
           setUserSelect={setUserSelect}
         />
+        <Reset handleReset={handleReset} />
       </form>
     </section>
   );
@@ -60,6 +63,7 @@ Filters.prototype = {
   handleFilterSpecies: PropTypes.func,
   userSelect: PropTypes.array,
   setUserSelec: PropTypes.func,
+  handleReset: PropTypes.func,
 };
 
 export default Filters;

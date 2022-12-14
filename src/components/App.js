@@ -30,7 +30,7 @@ function App() {
       ls.set('characterData', cleanData);
     });
   }, []);
-  console.log(characterData);
+
   // FUNCION ES HANDLER
 
   const handleFilterName = (value) => {
@@ -49,6 +49,15 @@ function App() {
     } else {
       setFilterByOrigins([...filterByOrigins, value]);
     }
+  };
+
+  const handleReset = () => {
+    console.log(characterData);
+    setUserSelect('All');
+    setUserSearch('');
+    setFilterByName([...characterData]);
+    setFilterByOrigins([]);
+    setFilterBySpecies([]);
   };
 
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
@@ -119,6 +128,7 @@ function App() {
                   handleFilterSpecies={handleFilterSpecies}
                   userSelect={userSelect}
                   setUserSelect={setUserSelect}
+                  handleReset={handleReset}
                 />
                 <CharacterList characters={allFilterData} />
                 {/* <CharacterList characters={filterByName} /> */}

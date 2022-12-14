@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 function FilterByOrigin({ origins, handleFilterOrigin, filterByOrigins }) {
   const handleOriginInput = (ev) => {
-    console.log(filterByOrigins);
     handleFilterOrigin(ev.target.value);
   };
 
