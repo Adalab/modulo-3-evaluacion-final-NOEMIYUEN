@@ -23,6 +23,8 @@ function App() {
   const [filterBySpecies, setFilterBySpecies] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
+  const [checkedLocal, setcheckLocal] = useState(false);
+
   // USEEFFECT
 
   useEffect(() => {
@@ -63,6 +65,9 @@ function App() {
     setFilterBySpecies([]);
   };
 
+  const handleLocalInput = (value) => {
+    setcheckLocal(value);
+  };
   // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
 
   const { pathname } = useLocation();
@@ -89,7 +94,16 @@ function App() {
     return uniqueOrigin;
   };
 
+  console.log(checkedLocal);
   const allFilterData = characterData
+    .filter((character) => {
+      console.log(character.location);
+      if (checkedLocal === true) {
+        return character.origin.includes(character.location);
+      } else {
+        return true;
+      }
+    })
     .filter((character) => {
       return filterByName.includes(character);
     })
@@ -135,6 +149,9 @@ function App() {
                     userSelect={userSelect}
                     setUserSelect={setUserSelect}
                     handleReset={handleReset}
+                    handleLocalInput={handleLocalInput}
+                    checkedLocal={checkedLocal}
+                    setcheckLocal={setcheckLocal}
                   />
                   <CharacterList characters={allFilterData} />
                   {/* <CharacterList characters={filterByName} /> */}

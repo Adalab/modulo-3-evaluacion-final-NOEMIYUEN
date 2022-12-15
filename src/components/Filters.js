@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FilterByOrigin from './FilterByOrigin';
 import FilterBySpecies from './FilterBySpecies';
 import Reset from './Reset';
+import FilterLocation from './FilterLocation';
 
 function Filters({
   handleFilterName,
@@ -17,6 +18,9 @@ function Filters({
   userSelect,
   setUserSelect,
   handleReset,
+  handleLocalInput,
+  checkedLocal,
+  setcheckLocal,
 }) {
   const handleSummit = (ev) => {
     ev.preventDefault();
@@ -44,6 +48,11 @@ function Filters({
           handleFilterSpecies={handleFilterSpecies}
           userSelect={userSelect}
           setUserSelect={setUserSelect}
+        />
+        <FilterLocation
+          handleLocalInput={handleLocalInput}
+          checkedLocal={checkedLocal}
+          setcheckLocal={setcheckLocal}
         />
         <Reset handleReset={handleReset} />
       </form>
