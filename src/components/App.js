@@ -95,10 +95,8 @@ function App() {
     return uniqueOrigin;
   };
 
-  console.log(checkedLocal);
   const allFilterData = characterData
     .filter((character) => {
-      console.log(character.location);
       if (checkedLocal === true) {
         return character.origin.includes(character.location);
       } else {
