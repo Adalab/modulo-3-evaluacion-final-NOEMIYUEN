@@ -63,6 +63,7 @@ function App() {
     setFilterByName([...characterData]);
     setFilterByOrigins([]);
     setFilterBySpecies([]);
+    setcheckLocal(false);
   };
 
   const handleLocalInput = (value) => {

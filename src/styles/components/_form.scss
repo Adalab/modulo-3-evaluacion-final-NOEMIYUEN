@@ -38,8 +38,16 @@
             @media all and (min-width: 768px){
                 line-height: 1.5rem;
                   }
-
-        }
+            }
+         &--locationInput {
+            margin: 5px;;
+            color:white;
+            font-size: 1rem;
+            line-height: 1.3rem;
+            @media all and (min-width: 768px){
+                line-height: 1.5rem;
+                  }
+             }
         &--labelInput {
             background-color: transparent;
             color:rgb(0, 217, 255);
@@ -88,6 +96,19 @@
     @media all and (min-width: 768px){
         flex-direction: row;
           }
+}
+
+.wrapBox2 {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    @media all and (min-width: 768px){
+        flex-direction: row;
+        gap: 20px;
+          }
+    
 }
 
 .reset {

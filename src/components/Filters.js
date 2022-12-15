@@ -43,17 +43,19 @@ function Filters({
             filterByOrigins={filterByOrigins}
           />
         </div>
-        <FilterBySpecies
-          characterData={characterData}
-          handleFilterSpecies={handleFilterSpecies}
-          userSelect={userSelect}
-          setUserSelect={setUserSelect}
-        />
-        <FilterLocation
-          handleLocalInput={handleLocalInput}
-          checkedLocal={checkedLocal}
-          setcheckLocal={setcheckLocal}
-        />
+        <div className="wrapBox2">
+          <FilterBySpecies
+            characterData={characterData}
+            handleFilterSpecies={handleFilterSpecies}
+            userSelect={userSelect}
+            setUserSelect={setUserSelect}
+          />
+          <FilterLocation
+            handleLocalInput={handleLocalInput}
+            checkedLocal={checkedLocal}
+            setcheckLocal={setcheckLocal}
+          />
+        </div>
         <Reset handleReset={handleReset} />
       </form>
     </section>

@@ -12,14 +12,14 @@ function FilterLocation({ handleLocalInput, checkedLocal, setcheckLocal }) {
     <ul>
       <li key="123abv">
         <input
-          className="formSection__form--originInput"
+          className="formSection__form--locationInput"
           type="checkbox"
           onChange={handleCheckLocation}
           value={checkedLocal}
         />
         <label className="formSection__form--labelInput">
           {' '}
-          Origin/location{' '}
+          Origin=location{' '}
         </label>
       </li>
     </ul>
