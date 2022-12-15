@@ -17,10 +17,7 @@ function FilterLocation({ handleLocalInput, checkedLocal, setcheckLocal }) {
           onChange={handleCheckLocation}
           value={checkedLocal}
         />
-        <label className="formSection__form--labelInput">
-          {' '}
-          Origin=location{' '}
-        </label>
+        <label className="formSection__form--labelInput">On home planet </label>
       </li>
     </ul>
   );
